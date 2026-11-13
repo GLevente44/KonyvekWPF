@@ -40,12 +40,7 @@ namespace KonyvekWPF
 
         private void Darab_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-                $"Összesen {konyvek.Count} könyv van.",
-                "Könyvek száma",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+            MessageBox.Show($"Összesen {konyvek.Count} könyv van.","Könyvek száma");
         }
 
         // Leghosszabb könyv
@@ -57,12 +52,9 @@ namespace KonyvekWPF
                 return;
             }
 
-            Konyv leghosszabb = konyvek
-                .OrderByDescending(k => k.Oldalszam)
-                .First();
+            Konyv leghosszabb = konyvek.OrderByDescending(k => k.Oldalszam).First();
 
-            MessageBox.Show(
-                $"A leghosszabb könyv:\n\n" +
+            MessageBox.Show($"A leghosszabb könyv:\n\n" +
                 $"{leghosszabb.Cim}\n" +
                 $"Szerző: {leghosszabb.Szerzo}\n" +
                 $"Oldalszám: {leghosszabb.Oldalszam}",
@@ -81,18 +73,14 @@ namespace KonyvekWPF
 
             double atlag = konyvek.Average(k => k.Oldalszam);
 
-            MessageBox.Show(
-                $"A könyvek átlagos oldalszáma: {atlag:F1}",
-                "Átlagos oldalszám"
+            MessageBox.Show($"A könyvek átlagos oldalszáma: {atlag:F1}","Átlagos oldalszám"
             );
         }
 
         // Csak elérhető könyvek
         private void Elerheto_Click(object sender, RoutedEventArgs e)
         {
-            var elerhetoKonyvek = konyvek
-                .Where(k => k.Elerheto)
-                .ToList();
+            var elerhetoKonyvek = konyvek.Where(k => k.Elerheto).ToList();
 
             dgKonyvek.ItemsSource = elerhetoKonyvek;
         }
@@ -106,9 +94,7 @@ namespace KonyvekWPF
                 return;
             }
 
-            string cimek = string.Join(
-                "\n",
-                konyvek.Select(k => k.Cim)
+            string cimek = string.Join("\n",konyvek.Select(k => k.Cim)
             );
 
             MessageBox.Show(cimek, "Könyvek címei");
@@ -117,9 +103,7 @@ namespace KonyvekWPF
         // Rendezés szerző szerint
         private void Rendezes_Click(object sender, RoutedEventArgs e)
         {
-            var rendezett = konyvek
-                .OrderBy(k => k.Szerzo)
-                .ToList();
+            var rendezett = konyvek.OrderBy(k => k.Szerzo).ToList();
 
             dgKonyvek.ItemsSource = rendezett;
         }
@@ -134,8 +118,7 @@ namespace KonyvekWPF
         public string Mufaj { get; set; }
         public bool Elerheto { get; set; }
 
-        public Konyv(string cim, string szerzo, int oldalszam,
-                     string mufaj, bool elerheto)
+        public Konyv(string cim, string szerzo, int oldalszam, string mufaj, bool elerheto)
         {
             Cim = cim;
             Szerzo = szerzo;
@@ -144,3 +127,4 @@ namespace KonyvekWPF
             Elerheto = elerheto;
         }
     }
+}
