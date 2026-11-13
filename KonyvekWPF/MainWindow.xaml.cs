@@ -43,7 +43,6 @@ namespace KonyvekWPF
             MessageBox.Show($"Összesen {konyvek.Count} könyv van.","Könyvek száma");
         }
 
-        // Leghosszabb könyv
         private void Leghosszabb_Click(object sender, RoutedEventArgs e)
         {
             if (konyvek.Count == 0)
@@ -62,7 +61,6 @@ namespace KonyvekWPF
             );
         }
 
-        // Átlagos oldalszám
         private void Atlag_Click(object sender, RoutedEventArgs e)
         {
             if (konyvek.Count == 0)
@@ -77,15 +75,12 @@ namespace KonyvekWPF
             );
         }
 
-        // Csak elérhető könyvek
         private void Elerheto_Click(object sender, RoutedEventArgs e)
         {
             var elerhetoKonyvek = konyvek.Where(k => k.Elerheto).ToList();
 
             dgKonyvek.ItemsSource = elerhetoKonyvek;
         }
-
-        // Csak címek listája
         private void Cimek_Click(object sender, RoutedEventArgs e)
         {
             if (konyvek.Count == 0)
@@ -100,7 +95,6 @@ namespace KonyvekWPF
             MessageBox.Show(cimek, "Könyvek címei");
         }
 
-        // Rendezés szerző szerint
         private void Rendezes_Click(object sender, RoutedEventArgs e)
         {
             var rendezett = konyvek.OrderBy(k => k.Szerzo).ToList();
@@ -109,22 +103,5 @@ namespace KonyvekWPF
         }
     }
 
-    // Könyv osztály
-    public class Konyv
-    {
-        public string Cim { get; set; }
-        public string Szerzo { get; set; }
-        public int Oldalszam { get; set; }
-        public string Mufaj { get; set; }
-        public bool Elerheto { get; set; }
-
-        public Konyv(string cim, string szerzo, int oldalszam, string mufaj, bool elerheto)
-        {
-            Cim = cim;
-            Szerzo = szerzo;
-            Oldalszam = oldalszam;
-            Mufaj = mufaj;
-            Elerheto = elerheto;
-        }
-    }
+   
 }
