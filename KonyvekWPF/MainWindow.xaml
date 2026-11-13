@@ -1,0 +1,51 @@
+﻿<Window x:Class="KonyvekWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KonyvekWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="14">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="12,35,12,15">
+
+            <Button Content="Könyvek betöltése" Height="35" Margin="0,0,0,25" Click="Betoltes_Click"/>
+
+            <Button Content="Hány könyv van?" Height="35" Margin="0,0,0,25" Click="Darab_Click"/>
+
+            <Button Content="Melyik a leghosszabb könyv?" Height="35" Margin="0,0,0,25" Click="Leghosszabb_Click"/>
+
+            <Button Content="Átlagos oldalszám" Height="35" Margin="0,0,0,25" Click="Atlag_Click"/>
+
+            <Button Content="Csak elérhető könyvek" Height="35" Margin="0,0,0,25" Click="Elerheto_Click"/>
+
+            <Button Content="Csak címek listája" Height="35" Margin="0,0,0,25" Click="Cimek_Click"/>
+
+            <Button Content="Rendezés szerző szerint" Height="35" Margin="0,0,0,25" Click="Rendezes_Click"/>
+
+            <ProgressBar x:Name="progressBar" Height="25" Minimum="0" Maximum="100" Value="0" Margin="0,0,0,0"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgKonyvek" Grid.Column="1" Margin="8,35,8,8">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Cím" Width="*"/>
+
+                <DataGridTextColumn Header="Szerző"  Width="*"/>
+
+                <DataGridTextColumn Header="Oldalszam" Width="*"/>
+
+                <DataGridTextColumn Header="Mufaj" Width="*"/>
+
+                <DataGridCheckBoxColumn Header="Elerheto" Width="*"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
